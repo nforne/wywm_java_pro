@@ -1,6 +1,9 @@
 package gamePackages;
 
+import java.util.ArrayList;
+
 public class Territory {
+    public int id;
     public String name;
     public String address;
     public String size;
@@ -8,17 +11,27 @@ public class Territory {
     //    climate could be tropical or temperate
     public String climate;
 
-    public Village[] villages;
-    public Town[] towns;
-    public City[] cities;
-    public Metropolis[] metropolis;
+    public ArrayList<Village> villages;
+    public ArrayList<Town> towns;
+    public ArrayList<City> cities;
+    public ArrayList<Metropolis> metropolis;
 
-    public Territory(String name, String address, String size, String climate) {
+    public Territory(String name, String address, String size, String climate, int id) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.size = size;
         this.climate = climate;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getName() {
         return name;
@@ -52,35 +65,35 @@ public class Territory {
         this.climate = climate;
     }
 
-    public Village[] getVillages() {
+    public ArrayList<Village> getVillages() {
         return villages;
     }
 
-    public void setVillages(Village[] villages) {
+    public void setVillages(ArrayList<Village> villages) {
         this.villages = villages;
     }
 
-    public Town[] getTowns() {
+    public ArrayList<Town> getTowns() {
         return towns;
     }
 
-    public void setTowns(Town[] towns) {
+    public void setTowns(ArrayList<Town> towns) {
         this.towns = towns;
     }
 
-    public City[] getCities() {
+    public ArrayList<City> getCities() {
         return cities;
     }
 
-    public void setCities(City[] cities) {
+    public void setCities(ArrayList<City> cities) {
         this.cities = cities;
     }
 
-    public Metropolis[] getMetropolis() {
+    public ArrayList<Metropolis> getMetropolis() {
         return metropolis;
     }
 
-    public void setMetropolis(Metropolis[] metropolis) {
+    public void setMetropolis(ArrayList<Metropolis> metropolis) {
         this.metropolis = metropolis;
     }
 

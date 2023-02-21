@@ -13,7 +13,7 @@ public class Building {
         Scanner buildingInput = new Scanner(System.in);
         System.out.println("Creating a building ...");
 
-        if (name.length() == 0) System.out.println("Enter the building name: John's family residence, 5th SubDivision policce station, etc");
+        if (name.length() == 0) System.out.println("Enter the building name: John's family residence, 5th SubDivision police station, etc");
         this.name = name.length() == 0 ? buildingInput.nextLine() : name;
 
         if (type.length() == 0) System.out.println("Enter the building type: a building could be a hurt, a bungalow, a flat, a story building, an office complex, a market, a business plaza, etc");
