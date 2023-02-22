@@ -31,7 +31,7 @@ public class CrudHelpers {
         return new Territory(name, address, size, climate, tid);
     }
 
-    public static Village createVillages(Territory territory){
+    public static Village createVillage(Territory territory){
         System.out.println("Creating Village ...");
         Scanner input = new Scanner(System.in);
 
@@ -59,7 +59,7 @@ public class CrudHelpers {
         return new Village(vid, vName, buildings, chief, palace, size);
     }
 
-    public static  Town creatTown(Territory territory) {
+    public static  Town createTown(Territory territory) {
         System.out.println("Creating Town ...");
         Scanner input = new Scanner(System.in);
 
@@ -159,7 +159,7 @@ public class CrudHelpers {
             System.out.println("Building size?: in square metres");
             String size = buildingInput.nextLine();
 
-            int bid = buildings.size() == 0 ? 1 : buildings.size() + 1;
+            int bid = buildings.size() == 0 ? 1 : buildings.size() + 1; // eg 10-V12-23 for territory # 10, village # 12, house # 23
             String buildingAddress = territoryAddress + "-" + settlementId + "-" + bid;
 
             System.out.println("Assigning Occupants ...");
@@ -181,15 +181,15 @@ public class CrudHelpers {
                 ArrayList<String> residence = new ArrayList<>();
                 residence.add(buildingAddress);
 
-                System.out.println(MessageFormat.format("Creating {0}'s professional profile", firstName));
-                System.out.println("National Occupation Classification code");
+                System.out.println(MessageFormat.format("Creating {0}'s professional profile ...\n", firstName));
                 String code = UUID.randomUUID().toString();
 
-                System.out.println("Name of Profession?: ");
-                String professionalOccupation = personInput.nextLine(); // name of profession
+                /* name of profession */
+                System.out.println("Profession?: eg Knight, Blacksmith, Farmer");
+                String occupation = personInput.nextLine();
 
                 System.out.println("Current title or rank of person in said profession?: ");
-                String title = personInput.nextLine(); // current title of person in the profession, title or rank or position , etc
+                String title = personInput.nextLine(); /* current title of person in the profession, title or rank or position , etc */
 
                 System.out.println("Tools or professional and rank identifying equipment?: ");
                 ArrayList<String> tools = new ArrayList<>();
@@ -205,10 +205,10 @@ public class CrudHelpers {
                     }
                 }
 
-                System.out.println("Person's Area of expertise in professional?: eg backend engineer");
+                System.out.println("Person's Area of expertise in profession?: eg backend engineer");
                 String area_of_expertise = personInput.nextLine();
 
-                Profession profession = new Profession(code, professionalOccupation, title, tools, area_of_expertise);
+                Profession profession = new Profession(code, occupation, title, tools, area_of_expertise);
 
                 Person person = new Person(firstName, lastName, age, residence, profession);
 
