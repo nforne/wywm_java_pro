@@ -59,7 +59,90 @@ public class CrudHelpers {
         return new Village(vid, vName, buildings, chief, palace, size);
     }
 
-    
+    public static  Town creatTown(Territory territory) {
+        System.out.println("Creating Town ...");
+        Scanner input = new Scanner(System.in);
+
+        String tid;
+        if (Territory.townsIds.size() == 0){
+            tid = "T100";
+        } else {
+            tid = "T" + (parseInt(Territory.townsIds.get(Territory.townsIds.size() - 1).substring(1)) + 1);
+        }
+
+        System.out.println("Town's Name: ");
+        String tName = input.nextLine();
+
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+
+        createBuildings(territory.address, tid, buildings);
+
+        System.out.println("Town size?: in square metres");
+        String size = input.nextLine();
+
+        Person mayor = buildings.get(0).occupants.get(0);
+        Building councilComplex = buildings.get(0);
+
+        return new Town(tid, tName, buildings, mayor, councilComplex, size);
+    }
+
+    public static  City creatCity(Territory territory) {
+        System.out.println("Creating City ...");
+        Scanner input = new Scanner(System.in);
+
+        String cid;
+        if (Territory.citiesIds.size() == 0){
+            cid = "C100";
+        } else {
+            cid = "C" + (parseInt(Territory.citiesIds.get(Territory.citiesIds.size() - 1).substring(1)) + 1);
+        }
+
+        System.out.println("City Name: ");
+        String cName = input.nextLine();
+
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+
+        createBuildings(territory.address, cid, buildings);
+
+        System.out.println("City size?: in square metres");
+        String size = input.nextLine();
+
+        Person cityMayor = buildings.get(0).occupants.get(0);
+        Building cityCouncilComplex = buildings.get(0);
+
+        return new City(cid, cName, buildings, cityMayor, cityCouncilComplex, size);
+    }
+
+    public static  Metropolis creatMetropolis(Territory territory) {
+        System.out.println("Creating City ...");
+        Scanner input = new Scanner(System.in);
+
+        String mid;
+        if (Territory.metropolisIds.size() == 0){
+            mid = "M100";
+        } else {
+            mid = "M" + (parseInt(Territory.metropolisIds.get(Territory.metropolisIds.size() - 1).substring(1)) + 1);
+        }
+
+        System.out.println("Metropolis Name: ");
+        String mName = input.nextLine();
+
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+
+        createBuildings(territory.address, mid, buildings);
+
+        System.out.println("Metropolis size?: in square metres");
+        String size = input.nextLine();
+
+        Person governor = buildings.get(0).occupants.get(0);
+        Building citadel = buildings.get(0);
+
+        return new Metropolis(mid, mName, buildings, governor, citadel, size);
+    }
+
 
     public static void createBuildings(String territoryAddress, String settlementId, ArrayList<Building> buildings){
         while (true) {
@@ -148,4 +231,6 @@ public class CrudHelpers {
             }
         }
     }
+
+
 }
