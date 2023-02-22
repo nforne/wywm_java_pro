@@ -2,7 +2,7 @@ package gamePackages;
 
 import java.util.ArrayList;
 
-public class Settlement {
+class Settlement {
     public String id;
     public String name;
     public ArrayList<Building> buildings;

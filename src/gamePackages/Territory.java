@@ -3,7 +3,12 @@ package gamePackages;
 import java.util.ArrayList;
 
 public class Territory {
-    public int id;
+    public static ArrayList<String> territoryIds;
+    public static ArrayList<String> villageIds;
+    public static ArrayList<String> townsIds;
+    public static ArrayList<String> citiesIds;
+    public static ArrayList<String> metropolisIds;
+    public String id;
     public String name;
     public String address;
     public String size;
@@ -16,7 +21,7 @@ public class Territory {
     public ArrayList<City> cities;
     public ArrayList<Metropolis> metropolis;
 
-    public Territory(String name, String address, String size, String climate, int id) {
+    public Territory(String name, String address, String size, String climate, String id) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -24,11 +29,11 @@ public class Territory {
         this.climate = climate;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

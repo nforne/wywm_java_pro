@@ -1,13 +1,15 @@
 package gamePackages;
 
+import java.util.ArrayList;
+
 public class Profession {
     public String code;
     public String profession; // name of profession
     public String title; // title or rank or position , etc
-    public String[] tools;
+    public ArrayList<String> tools;
     public String area_of_expertise;
 
-    public Profession(String code, String profession, String title, String[] tools, String area_of_expertise) {
+    public Profession(String code, String profession, String title, ArrayList<String> tools, String area_of_expertise) {
         this.code = code;
         this.profession = profession;
         this.title = title;
@@ -37,11 +39,11 @@ public class Profession {
         this.title = title;
     }
 
-    public String[] getTools() {
+    public ArrayList<String> getTools() {
         return tools;
     }
 
-    public void setTools(String[] tools) {
+    public void setTools(ArrayList<String> tools) {
         this.tools = tools;
     }
 

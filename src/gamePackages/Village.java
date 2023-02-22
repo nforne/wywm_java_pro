@@ -3,6 +3,7 @@ package gamePackages;
 import java.util.ArrayList;
 
 public class Village extends Settlement{
+    public ArrayList<Integer> buildingIds;
     public Person chief;
     public Building palace;
     public String size;

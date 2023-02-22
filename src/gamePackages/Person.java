@@ -1,12 +1,14 @@
 package gamePackages;
 
+import java.util.ArrayList;
+
 public class Person {
     public String firstName;
     public String lastName;
     public int age;
-    public String[] residence;
+    public ArrayList<String> residence;
     public Profession profession;
-    public Person(String firstName, String lastName, int age, String[] residence, Profession profession) {
+    public Person(String firstName, String lastName, int age, ArrayList<String> residence, Profession profession) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -38,11 +40,11 @@ public class Person {
         this.age = age;
     }
 
-    public String[] getResidence() {
+    public ArrayList<String> getResidence() {
         return residence;
     }
 
-    public void setResidence(String[] residence) {
+    public void setResidence(ArrayList<String> residence) {
         this.residence = residence;
     }
 
