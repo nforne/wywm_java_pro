@@ -9,9 +9,9 @@ public class Profession {
     public ArrayList<String> tools;
     public String area_of_expertise;
 
-    public Profession(String code, String profession, String title, ArrayList<String> tools, String area_of_expertise) {
+    public Profession(String code, String occupation, String title, ArrayList<String> tools, String area_of_expertise) {
         this.code = code;
-        this.profession = profession;
+        this.profession = occupation;
         this.title = title;
         this.tools = tools;
         this.area_of_expertise = area_of_expertise;

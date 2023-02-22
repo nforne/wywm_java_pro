@@ -23,8 +23,10 @@ public class Main {
             System.out.println("Add another territory?: Yes(Y) / No(N)");
             String addTools = input.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
+                input.close();
                 break;
             }
+            input.close();
         }
         System.out.println(territories);
     }
