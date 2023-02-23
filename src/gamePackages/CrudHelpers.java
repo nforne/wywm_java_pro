@@ -12,7 +12,7 @@ public class CrudHelpers {
         System.out.println("Creating Territory ...");
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Territory Name: ");
+        System.out.println("Territory Name?: ");
         String name = input.nextLine();
 
         System.out.println("Territory Size: in square metres");
@@ -46,13 +46,13 @@ public class CrudHelpers {
         System.out.println("Village Name?: ");
         String vName = vInput.nextLine();
 
-        System.out.println("Creating Buildings ...");
-        ArrayList<Building> buildings = new ArrayList<>();
-
-        createBuildings(territory.address, vid, buildings);
-
         System.out.println("Village size?: in square metres");
         String size = vInput.nextLine();
+
+        System.out.println("Adding buildings to village! ...\n");
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+        createBuildings(territory.address, vid, buildings);
 
         Person chief = buildings.get(0).occupants.get(0);
         Building palace = buildings.get(0);
@@ -74,13 +74,13 @@ public class CrudHelpers {
         System.out.println("Town's Name: ");
         String tName = tInput.nextLine();
 
-        System.out.println("Creating Buildings ...");
-        ArrayList<Building> buildings = new ArrayList<>();
-
-        createBuildings(territory.address, tid, buildings);
-
         System.out.println("Town size?: in square metres");
         String size = tInput.nextLine();
+
+        System.out.println("Adding buildings to Town! ...\n");
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+        createBuildings(territory.address, tid, buildings);
 
         Person mayor = buildings.get(0).occupants.get(0);
         Building councilComplex = buildings.get(0);
@@ -99,16 +99,16 @@ public class CrudHelpers {
             cid = "C" + (parseInt(Territory.citiesIds.get(Territory.citiesIds.size() - 1).substring(1)) + 1);
         }
 
-        System.out.println("City Name: ");
+        System.out.println("City Name?: ");
         String cName = cInput.nextLine();
-
-        System.out.println("Creating Buildings ...");
-        ArrayList<Building> buildings = new ArrayList<>();
-
-        createBuildings(territory.address, cid, buildings);
 
         System.out.println("City size?: in square metres");
         String size = cInput.nextLine();
+
+        System.out.println("Adding buildings to City! ...\n");
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+        createBuildings(territory.address, cid, buildings);
 
         Person cityMayor = buildings.get(0).occupants.get(0);
         Building cityCouncilComplex = buildings.get(0);
@@ -127,16 +127,16 @@ public class CrudHelpers {
             mid = "M" + (parseInt(Territory.metropolisIds.get(Territory.metropolisIds.size() - 1).substring(1)) + 1);
         }
 
-        System.out.println("Metropolis Name: ");
+        System.out.println("Metropolis Name?: ");
         String mName = mInput.nextLine();
-
-        System.out.println("Creating Buildings ...");
-        ArrayList<Building> buildings = new ArrayList<>();
-
-        createBuildings(territory.address, mid, buildings);
 
         System.out.println("Metropolis size?: in square metres");
         String size = mInput.nextLine();
+
+        System.out.println("Adding buildings to Metropolis! ...\n");
+        System.out.println("Creating Buildings ...");
+        ArrayList<Building> buildings = new ArrayList<>();
+        createBuildings(territory.address, mid, buildings);
 
         Person governor = buildings.get(0).occupants.get(0);
         Building citadel = buildings.get(0);
@@ -147,7 +147,7 @@ public class CrudHelpers {
 
     public static void createBuildings(String territoryAddress, String settlementId, ArrayList<Building> buildings){
         while (true) {
-            System.out.println("Create Building ...");
+            System.out.println("\nCreate Building ...");
             Scanner buildingInput = new Scanner(System.in);
 
             System.out.println("Building Name?: eg John's family residence, 5th SubDivision police station, etc");
@@ -181,35 +181,34 @@ public class CrudHelpers {
                 ArrayList<String> residence = new ArrayList<>();
                 residence.add(buildingAddress);
 
-                System.out.println(MessageFormat.format("Creating {0}'s professional profile ...\n", firstName));
+                System.out.println(MessageFormat.format("Creating {0}'s professional profile ...", firstName));
                 String code = UUID.randomUUID().toString();
 
-                System.out.println("Profession?: eg Knight, Blacksmith, Farmer");
-                String test = personInput.nextLine(); // ---------------------------?
-                String occupation = personInput.nextLine();
+                System.out.println("\nProfession?: eg Knight, Blacksmith, Farmer");
+                String occupation = personInput.nextLine(); // ----------------?
 
-                System.out.println("Current title or rank of person in said profession?: ");
+                System.out.println("\nCurrent title or rank of person in said profession?: ");
                 String title = personInput.nextLine(); /* current title of person in the profession, title or rank or position , etc */
 
-                System.out.println("Tools or professional and rank identifying equipment?: ");
+                System.out.println("\nPerson's Area of expertise in profession?: eg backend engineer");
+                String area_of_expertise = personInput.nextLine();
+
+                System.out.println("\nTools or professional and rank identifying equipment?: ");
                 ArrayList<String> tools = new ArrayList<>();
                 while (true) {
-                    System.out.println("Adding tools ...\n");
+                    System.out.println("Adding tools ...");
                     Scanner toolInput = new Scanner(System.in);
 
-                    System.out.println("Name of tool?: ");
+                    System.out.println("\nName of tool?: ");
                     String tool = toolInput.nextLine();
                     tools.add(tool);
 
                     System.out.println("Add another Tool?: Yes(Y) / No(N)");
-                    String addTools = toolInput.nextLine();
+                    String addTools = toolInput.next();
                     if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
                         break;
                     }
                 }
-
-                System.out.println("Person's Area of expertise in profession?: eg backend engineer");
-                String area_of_expertise = personInput.nextLine();
 
                 Profession profession = new Profession(code, occupation, title, tools, area_of_expertise);
 
@@ -218,7 +217,7 @@ public class CrudHelpers {
                 occupants.add(person);
 
                 System.out.println("Add another Person?: Yes(Y) / No(N)");
-                String addMore = personInput.nextLine();
+                String addMore = personInput.next();
                 if (addMore.equalsIgnoreCase("no") || addMore.equalsIgnoreCase("n")) {
                     break;
                 }
@@ -228,7 +227,7 @@ public class CrudHelpers {
             buildings.add(building);
 
             System.out.println("Add another house?: Yes(Y) / No(N)");
-            String createMore = buildingInput.nextLine();
+            String createMore = buildingInput.next();
             if (createMore.equalsIgnoreCase("no") || createMore.equalsIgnoreCase("n")) {
                 break;
             }

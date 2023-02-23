@@ -89,10 +89,8 @@ public class Territory {
             System.out.println("Add another village?: Yes(Y) / No(N)");
             String addTools = vInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                vInput.close();
                 break;
             }
-            vInput.close();
 
         }
     };
@@ -114,10 +112,8 @@ public class Territory {
             System.out.println("Add another Town?: Yes(Y) / No(N)");
             String addTools = tInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                tInput.close();
                 break;
             }
-            tInput.close();
 
         }
     };
@@ -139,10 +135,8 @@ public class Territory {
             System.out.println("Add another city?: Yes(Y) / No(N)");
             String addTools = cInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                cInput.close();
                 break;
             }
-            cInput.close();
 
         }
     };
@@ -163,10 +157,8 @@ public class Territory {
             System.out.println("Add another metropolis?: Yes(Y) / No(N)");
             String addTools = mInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                mInput.close();
                 break;
             }
-            mInput.close();
 
         }
     };
