@@ -3,11 +3,11 @@ package gamePackages;
 import java.util.ArrayList;
 
 public class Person {
-    public String firstName;
-    public String lastName;
-    public int age;
-    public ArrayList<String> residence;
-    public Profession profession;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private ArrayList<String> residence;
+    private Profession profession;
     public Person(String firstName, String lastName, int age, ArrayList<String> residence, Profession profession) {
         this.firstName = firstName;
         this.lastName = lastName;

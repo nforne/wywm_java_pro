@@ -3,9 +3,9 @@ package gamePackages;
 import java.util.ArrayList;
 
 class Settlement {
-    public String id;
-    public String name;
-    public ArrayList<Building> buildings;
+    private String id;
+    private String name;
+    private ArrayList<Building> buildings;
 
     public Settlement(String id, String name, ArrayList<Building> buildings) {
         this.id = id;

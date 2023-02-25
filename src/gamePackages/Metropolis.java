@@ -3,14 +3,19 @@ package gamePackages;
 import java.util.ArrayList;
 
 public class Metropolis extends Settlement{
-    public Person governor;
-    public Building citadel;
-    public String size;
+    private Person governor;
+    private Building citadel;
+    private String size;
+    private ArrayList<Integer> buildingIds;
     public Metropolis(String id, String name, ArrayList<Building> buildings, Person governor, Building citadel, String size) {
         super(id, name, buildings);
         this.governor = governor;
         this.citadel = citadel;
         this.size = size;
+        this.buildingIds = new ArrayList<>();
+        for (Building b: buildings) {
+            this.buildingIds.add(b.id);
+        }
     }
 
     public Person getGovernor() {

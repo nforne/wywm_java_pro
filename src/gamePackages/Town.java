@@ -3,14 +3,19 @@ package gamePackages;
 import java.util.ArrayList;
 
 public class Town extends Settlement{
-    public Person mayor;
-    public Building councilComplex;
-    public String size;
+    private ArrayList<Integer> buildingIds;
+    private Person mayor;
+    private Building councilComplex;
+    private String size;
     public Town(String id, String name, ArrayList<Building> buildings, Person mayor, Building councilComplex, String size) {
         super(id, name, buildings);
         this.mayor = mayor;
         this.councilComplex = councilComplex;
         this.size = size;
+        this.buildingIds = new ArrayList<>();
+        for (Building b: buildings) {
+            this.buildingIds.add(b.id);
+        }
     }
 
 

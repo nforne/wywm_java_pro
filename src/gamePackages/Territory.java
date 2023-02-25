@@ -14,7 +14,7 @@ public class Territory {
     private String id;
     private String name;
     private String address;
-    public String size;
+    private String size;
 
     //    climate could be tropical or temperate
     private String climate;

@@ -2,6 +2,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 import gamePackages.Territory;
+import netscape.javascript.JSObject;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import static gamePackages.CrudHelpers.createTerritory;
 
 
 public class Main {
-    public static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
+    private static JSObject gameSessions;
     public static ArrayList<Territory> territories = new ArrayList<>();
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -58,11 +59,18 @@ public class Main {
         
         input.close();
 
-        gameSessions.add(territories);
+        getGameSessions().setMember(territories.get(0).getId(), territories);
         String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(new Gson().toJson(territories)));
         System.out.println(outPut);
 
     }
 
 
+    public static JSObject getGameSessions() {
+        return gameSessions;
+    }
+
+    public static void setGameSessions(JSObject gameSessions) {
+        Main.gameSessions = gameSessions;
+    }
 }
