@@ -1,28 +1,67 @@
-package gamePackages;
+package game_packages;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static gamePackages.CrudHelpers.*;
+import static game_packages.CrudHelpers.*;
 
 public class Territory {
-    public static ArrayList<String> territoryIds = new ArrayList<>();
-    public  ArrayList<String> villageIds = new ArrayList<>();
-    public  ArrayList<String> townsIds = new ArrayList<>();
-    public  ArrayList<String> citiesIds = new ArrayList<>();
-    public  ArrayList<String> metropolisIds = new ArrayList<>();
     private String id;
     private String name;
     private String address;
     private String size;
+    private String climate; // climate could be tropical or temperate
+    private static ArrayList<String> territoryIds = new ArrayList<>();
 
-    //    climate could be tropical or temperate
-    private String climate;
+    public static ArrayList<String> getTerritoryIds() {
+        return territoryIds;
+    }
 
-    public ArrayList<Village> villages = new ArrayList<>();
-    public ArrayList<Town> towns = new ArrayList<>();
-    public ArrayList<City> cities = new ArrayList<>();
-    public ArrayList<Metropolis> metropolis = new ArrayList<>();
+    public static void setTerritoryIds(ArrayList<String> territoryIds) {
+        Territory.territoryIds = territoryIds;
+    }
+
+    public ArrayList<String> getVillagesIds() {
+        return villagesIds;
+    }
+
+    public void setVillagesIds(ArrayList<String> villagesIds) {
+        this.villagesIds = villagesIds;
+    }
+
+    public ArrayList<String> getTownsIds() {
+        return townsIds;
+    }
+
+    public void setTownsIds(ArrayList<String> townsIds) {
+        this.townsIds = townsIds;
+    }
+
+    public ArrayList<String> getCitiesIds() {
+        return citiesIds;
+    }
+
+    public void setCitiesIds(ArrayList<String> citiesIds) {
+        this.citiesIds = citiesIds;
+    }
+
+    public ArrayList<String> getMetropolisIds() {
+        return metropolisIds;
+    }
+
+    public void setMetropolisIds(ArrayList<String> metropolisIds) {
+        this.metropolisIds = metropolisIds;
+    }
+
+    private  ArrayList<String> villagesIds;
+    private  ArrayList<String> townsIds;
+    private  ArrayList<String> citiesIds;
+    private  ArrayList<String> metropolisIds;
+
+    private ArrayList<Village> villages;
+    private ArrayList<Town> towns;
+    private ArrayList<City> cities;
+    private ArrayList<Metropolis> metropolis;
 
     public Territory(String name, String address, String size, String climate, String id) {
         this.id = id;
@@ -30,6 +69,17 @@ public class Territory {
         this.address = address;
         this.size = size;
         this.climate = climate;
+
+        this.villagesIds = new ArrayList<>();
+        this.townsIds = new ArrayList<>();
+        this.citiesIds = new ArrayList<>();
+        this.metropolisIds = new ArrayList<>();
+
+        this.villages = new ArrayList<>();
+        this.towns = new ArrayList<>();
+        this.cities = new ArrayList<>();
+        this.metropolis = new ArrayList<>();
+
     }
 
     public String getId() {

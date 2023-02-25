@@ -1,4 +1,4 @@
-package gamePackages;
+package game_packages;
 
 import java.util.ArrayList;
 

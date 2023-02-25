@@ -1,4 +1,4 @@
-package gamePackages;
+package game_packages;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -22,14 +22,16 @@ public class CrudHelpers {
         String climate = input.nextLine();
 
         String tid;
-        if (Territory.territoryIds.size() == 0) {
+        ArrayList<String> tIds = Territory.getTerritoryIds();
+        if (tIds.size() == 0) {
             tid = String.valueOf(1000);
         } else {
-            tid = String.valueOf(parseInt(Territory.territoryIds.get(Territory.territoryIds.size() - 1)) + 1);
+            tid = String.valueOf(parseInt(tIds.get(tIds.size() - 1)) + 1);
         }
         String address = tid;
         Territory territory = new Territory(name, address, size, climate, tid);
-        Territory.territoryIds.add(territory.getId());
+        tIds.add(territory.getId());
+        Territory.setTerritoryIds(tIds);
 
         return territory;
     }
@@ -39,12 +41,12 @@ public class CrudHelpers {
         Scanner vInput = new Scanner(System.in);
 
         String vid;
-        if (territory.villageIds.size() == 0){
+        ArrayList<String> vIds = territory.getVillagesIds();
+        if (vIds.size() == 0){
             vid = "V100";
         } else {
-            vid = "V" + (parseInt(territory.villageIds.get(territory.villageIds.size() - 1).substring(1)) + 1);
+            vid = "V" + (parseInt(vIds.get(vIds.size() - 1).substring(1)) + 1);
         }
-        territory.villageIds.add(vid);
 
         System.out.println("Village Name?: ");
         String vName = vInput.nextLine();
@@ -60,7 +62,11 @@ public class CrudHelpers {
         Person chief = buildings.get(0).getOccupants().get(0);
         Building palace = buildings.get(0);
 
-        return new Village(vid, vName, buildings, chief, palace, size);
+        Village village = new Village(vid, vName, buildings, chief, palace, size);
+        vIds.add(village.getId());
+        territory.setVillagesIds(vIds);
+
+        return village;
     }
 
     public static  Town createTown(Territory territory) {
@@ -68,12 +74,12 @@ public class CrudHelpers {
         Scanner tInput = new Scanner(System.in);
 
         String tid;
-        if (territory.townsIds.size() == 0){
+        ArrayList<String> tIds = territory.getTownsIds();
+        if (tIds.size() == 0){
             tid = "T100";
         } else {
-            tid = "T" + (parseInt(territory.townsIds.get(territory.townsIds.size() - 1).substring(1)) + 1);
+            tid = "T" + (parseInt(tIds.get(tIds.size() - 1).substring(1)) + 1);
         }
-        territory.townsIds.add(tid);
 
         System.out.println("Town's Name: ");
         String tName = tInput.nextLine();
@@ -89,7 +95,11 @@ public class CrudHelpers {
         Person mayor = buildings.get(0).getOccupants().get(0);
         Building councilComplex = buildings.get(0);
 
-        return new Town(tid, tName, buildings, mayor, councilComplex, size);
+        Town town = new Town(tid, tName, buildings, mayor, councilComplex, size);
+        tIds.add(town.getId());
+        territory.setTownsIds(tIds);
+
+        return town;
     }
 
     public static  City creatCity(Territory territory) {
@@ -97,12 +107,12 @@ public class CrudHelpers {
         Scanner cInput = new Scanner(System.in);
 
         String cid;
-        if (territory.citiesIds.size() == 0){
+        ArrayList<String> cIds = territory.getCitiesIds();
+        if (cIds.size() == 0){
             cid = "C100";
         } else {
-            cid = "C" + (parseInt(territory.citiesIds.get(territory.citiesIds.size() - 1).substring(1)) + 1);
+            cid = "C" + (parseInt(cIds.get(cIds.size() - 1).substring(1)) + 1);
         }
-        territory.citiesIds.add(cid);
 
         System.out.println("City Name?: ");
         String cName = cInput.nextLine();
@@ -118,7 +128,11 @@ public class CrudHelpers {
         Person cityMayor = buildings.get(0).getOccupants().get(0);
         Building cityCouncilComplex = buildings.get(0);
 
-        return new City(cid, cName, buildings, cityMayor, cityCouncilComplex, size);
+        City city = new City(cid, cName, buildings, cityMayor, cityCouncilComplex, size);
+        cIds.add(city.getId());
+        territory.setCitiesIds(cIds);
+
+        return city;
     }
 
     public static  Metropolis creatMetropolis(Territory territory) {
@@ -126,12 +140,12 @@ public class CrudHelpers {
         Scanner mInput = new Scanner(System.in);
 
         String mid;
-        if (territory.metropolisIds.size() == 0){
+        ArrayList<String> mIds = territory.getMetropolisIds();
+        if (mIds.size() == 0){
             mid = "M100";
         } else {
-            mid = "M" + (parseInt(territory.metropolisIds.get(territory.metropolisIds.size() - 1).substring(1)) + 1);
+            mid = "M" + (parseInt(mIds.get(mIds.size() - 1).substring(1)) + 1);
         }
-        territory.metropolisIds.add(mid);
 
         System.out.println("Metropolis Name?: ");
         String mName = mInput.nextLine();
@@ -147,7 +161,11 @@ public class CrudHelpers {
         Person governor = buildings.get(0).getOccupants().get(0);
         Building citadel = buildings.get(0);
 
-        return new Metropolis(mid, mName, buildings, governor, citadel, size);
+        Metropolis metropolis = new Metropolis(mid, mName, buildings, governor, citadel, size);
+        mIds.add(metropolis.getId());
+        territory.setMetropolisIds(mIds);
+
+        return metropolis;
     }
 
 
@@ -191,8 +209,10 @@ public class CrudHelpers {
                 String code = String.valueOf(UUID.randomUUID());
 
                 System.out.println(MessageFormat.format("\n{0}'s Profession?: eg Knight, Blacksmith, Farmer", firstName));
-                String test = personInput.nextLine();   // ---------------- ? nextLine()
-                String occupation = personInput.nextLine();
+                String occupation = "";
+                while (occupation.equals("")) {
+                    occupation = personInput.nextLine();
+                }
 
                 System.out.println(MessageFormat.format("Current title or rank of {0} in {1}?: ", firstName, occupation));
                 String title = personInput.nextLine(); /* current title of person in the profession, title or rank or position , etc */

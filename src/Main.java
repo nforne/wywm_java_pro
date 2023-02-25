@@ -1,19 +1,23 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
-import gamePackages.Territory;
+import game_packages.Territory;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static gamePackages.CrudHelpers.createTerritory;
+import static game_packages.CrudHelpers.createTerritory;
 
 
 public class Main {
-    private static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
-    public static ArrayList<Territory> territories = new ArrayList<>();
+    public static ArrayList<Territory> territories;
+    private static ArrayList<ArrayList<Territory>> gameSessions;
+    public Main() {
+        Main.gameSessions = new ArrayList<>();
+        Main.territories = new ArrayList<>();
+    }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the game backend...\n");
