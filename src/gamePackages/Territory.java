@@ -7,17 +7,17 @@ import static gamePackages.CrudHelpers.*;
 
 public class Territory {
     public static ArrayList<String> territoryIds = new ArrayList<>();
-    public static ArrayList<String> villageIds = new ArrayList<>();
-    public static ArrayList<String> townsIds = new ArrayList<>();
-    public static ArrayList<String> citiesIds = new ArrayList<>();
-    public static ArrayList<String> metropolisIds = new ArrayList<>();
-    public String id;
-    public String name;
-    public String address;
+    public  ArrayList<String> villageIds = new ArrayList<>();
+    public  ArrayList<String> townsIds = new ArrayList<>();
+    public  ArrayList<String> citiesIds = new ArrayList<>();
+    public  ArrayList<String> metropolisIds = new ArrayList<>();
+    private String id;
+    private String name;
+    private String address;
     public String size;
 
     //    climate could be tropical or temperate
-    public String climate;
+    private String climate;
 
     public ArrayList<Village> villages = new ArrayList<>();
     public ArrayList<Town> towns = new ArrayList<>();
@@ -93,8 +93,7 @@ public class Territory {
             }
 
         }
-    };
-
+    }
 
     public ArrayList<Town> getTowns() {
         return towns;
@@ -116,7 +115,7 @@ public class Territory {
             }
 
         }
-    };
+    }
 
     public ArrayList<City> getCities() {
         return cities;
@@ -139,8 +138,7 @@ public class Territory {
             }
 
         }
-    };
-
+    }
     public ArrayList<Metropolis> getMetropolis() {
         return metropolis;
     }
@@ -161,7 +159,6 @@ public class Territory {
             }
 
         }
-    };
-
+    }
 
 }

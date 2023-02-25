@@ -28,8 +28,10 @@ public class CrudHelpers {
             tid = String.valueOf(parseInt(Territory.territoryIds.get(Territory.territoryIds.size() - 1)) + 1);
         }
         String address = tid;
+        Territory territory = new Territory(name, address, size, climate, tid);
+        Territory.territoryIds.add(territory.getId());
 
-        return new Territory(name, address, size, climate, tid);
+        return territory;
     }
 
     public static Village createVillage(Territory territory){
@@ -37,11 +39,12 @@ public class CrudHelpers {
         Scanner vInput = new Scanner(System.in);
 
         String vid;
-        if (Territory.villageIds.size() == 0){
+        if (territory.villageIds.size() == 0){
             vid = "V100";
         } else {
-            vid = "V" + (parseInt(Territory.villageIds.get(Territory.villageIds.size() - 1).substring(1)) + 1);
+            vid = "V" + (parseInt(territory.villageIds.get(territory.villageIds.size() - 1).substring(1)) + 1);
         }
+        territory.villageIds.add(vid);
 
         System.out.println("Village Name?: ");
         String vName = vInput.nextLine();
@@ -52,7 +55,7 @@ public class CrudHelpers {
         System.out.println("\nAdding buildings to village! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
-        createBuildings(territory.address, vid, buildings);
+        createBuildings(territory.getAddress(), vid, buildings);
 
         Person chief = buildings.get(0).occupants.get(0);
         Building palace = buildings.get(0);
@@ -65,11 +68,12 @@ public class CrudHelpers {
         Scanner tInput = new Scanner(System.in);
 
         String tid;
-        if (Territory.townsIds.size() == 0){
+        if (territory.townsIds.size() == 0){
             tid = "T100";
         } else {
-            tid = "T" + (parseInt(Territory.townsIds.get(Territory.townsIds.size() - 1).substring(1)) + 1);
+            tid = "T" + (parseInt(territory.townsIds.get(territory.townsIds.size() - 1).substring(1)) + 1);
         }
+        territory.townsIds.add(tid);
 
         System.out.println("Town's Name: ");
         String tName = tInput.nextLine();
@@ -80,7 +84,7 @@ public class CrudHelpers {
         System.out.println("\nAdding buildings to Town! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
-        createBuildings(territory.address, tid, buildings);
+        createBuildings(territory.getAddress(), tid, buildings);
 
         Person mayor = buildings.get(0).occupants.get(0);
         Building councilComplex = buildings.get(0);
@@ -93,11 +97,12 @@ public class CrudHelpers {
         Scanner cInput = new Scanner(System.in);
 
         String cid;
-        if (Territory.citiesIds.size() == 0){
+        if (territory.citiesIds.size() == 0){
             cid = "C100";
         } else {
-            cid = "C" + (parseInt(Territory.citiesIds.get(Territory.citiesIds.size() - 1).substring(1)) + 1);
+            cid = "C" + (parseInt(territory.citiesIds.get(territory.citiesIds.size() - 1).substring(1)) + 1);
         }
+        territory.citiesIds.add(cid);
 
         System.out.println("City Name?: ");
         String cName = cInput.nextLine();
@@ -108,7 +113,7 @@ public class CrudHelpers {
         System.out.println("\nAdding buildings to City! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
-        createBuildings(territory.address, cid, buildings);
+        createBuildings(territory.getAddress(), cid, buildings);
 
         Person cityMayor = buildings.get(0).occupants.get(0);
         Building cityCouncilComplex = buildings.get(0);
@@ -121,11 +126,12 @@ public class CrudHelpers {
         Scanner mInput = new Scanner(System.in);
 
         String mid;
-        if (Territory.metropolisIds.size() == 0){
+        if (territory.metropolisIds.size() == 0){
             mid = "M100";
         } else {
-            mid = "M" + (parseInt(Territory.metropolisIds.get(Territory.metropolisIds.size() - 1).substring(1)) + 1);
+            mid = "M" + (parseInt(territory.metropolisIds.get(territory.metropolisIds.size() - 1).substring(1)) + 1);
         }
+        territory.metropolisIds.add(mid);
 
         System.out.println("Metropolis Name?: ");
         String mName = mInput.nextLine();
@@ -136,7 +142,7 @@ public class CrudHelpers {
         System.out.println("\nAdding buildings to Metropolis! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
-        createBuildings(territory.address, mid, buildings);
+        createBuildings(territory.getAddress(), mid, buildings);
 
         Person governor = buildings.get(0).occupants.get(0);
         Building citadel = buildings.get(0);
@@ -162,11 +168,11 @@ public class CrudHelpers {
             int bid = buildings.size() == 0 ? 1 : buildings.size() + 1; // eg 10-V12-23 for territory # 10, village # 12, house # 23
             String buildingAddress = territoryAddress + "-" + settlementId + "-" + bid;
 
-            System.out.println("Assigning Occupants ...");
+            System.out.println(MessageFormat.format("\nAssigning Occupants to {0}....", buildingName));
             ArrayList<Person> occupants = new ArrayList<>();
 
             while (true) {
-                System.out.println("Adding Person to building ...");
+                System.out.println(MessageFormat.format("\nAdding Person to {0} ...", buildingName));
                 Scanner personInput = new Scanner(System.in);
 
                 System.out.println("Person's First name?: ");
@@ -181,30 +187,30 @@ public class CrudHelpers {
                 ArrayList<String> residence = new ArrayList<>();
                 residence.add(buildingAddress);
 
-                System.out.println(MessageFormat.format("Creating {0}'s professional profile ...", firstName));
+                System.out.println(MessageFormat.format("\nCreating {0}'s professional profile ...", firstName));
                 String code = String.valueOf(UUID.randomUUID());
 
-                System.out.println("\nProfession?: eg Knight, Blacksmith, Farmer");
+                System.out.println(MessageFormat.format("\n{0}'s Profession?: eg Knight, Blacksmith, Farmer", firstName));
                 String test = personInput.nextLine();   // ---------------- ? nextLine()
                 String occupation = personInput.nextLine();
 
-                System.out.println("\nCurrent title or rank of person in said profession?: ");
+                System.out.println(MessageFormat.format("Current title or rank of {0} in {1}?: ", firstName, occupation));
                 String title = personInput.nextLine(); /* current title of person in the profession, title or rank or position , etc */
 
-                System.out.println("\nPerson's Area of expertise in profession?: eg backend engineer");
+                System.out.println(MessageFormat.format("{0}'s Area of expertise in profession?: eg backend engineer", firstName));
                 String expertiseArea = personInput.nextLine();
 
-                System.out.println("\nTools or professional and rank identifying equipment?: ");
+                System.out.println("Tools or professional and rank identifying equipment?: ");
                 ArrayList<String> tools = new ArrayList<>();
+                System.out.println("-Adding tools ...");
                 while (true) {
-                    System.out.println("Adding tools ...");
                     Scanner toolInput = new Scanner(System.in);
 
-                    System.out.println("\nName of tool?: ");
+                    System.out.println("--Name of tool?: ");
                     String tool = toolInput.nextLine();
                     tools.add(tool);
 
-                    System.out.println("Add another Tool?: Yes(Y) / No(N)");
+                    System.out.println("-Add another Tool?: Yes(Y) / No(N)");
                     String addTools = toolInput.next();
                     if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
                         break;

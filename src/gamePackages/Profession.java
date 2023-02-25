@@ -3,11 +3,11 @@ package gamePackages;
 import java.util.ArrayList;
 
 public class Profession {
-    public String code;
-    public String profession; // name of profession
-    public String title; // title or rank or position , etc
-    public ArrayList<String> tools;
-    public String expertiseArea;
+    private String code;
+    private String profession; // name of profession
+    private String title; // title or rank or position , etc
+    private ArrayList<String> tools;
+    private String expertiseArea;
 
     public Profession(String code, String occupation, String title, ArrayList<String> tools, String expertiseArea) {
         this.code = code;
