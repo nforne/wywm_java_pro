@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Building {
 
     //    a building could be a hurt, a bungalow, a flat, a story building, an office complex, a market, a business plaza, etc
-    public String name;
-    public String type;
-    public String size;
-    public String address;
-    public ArrayList<Person> occupants;
+    private String name;
+    private String type;
+    private String size;
+    private String address;
+    private ArrayList<Person> occupants;
     public Building(int id, String name, String type, String size, String address, ArrayList<Person> occupants) {
         this.id = id;
         this.name = name;

@@ -57,7 +57,7 @@ public class CrudHelpers {
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.getAddress(), vid, buildings);
 
-        Person chief = buildings.get(0).occupants.get(0);
+        Person chief = buildings.get(0).getOccupants().get(0);
         Building palace = buildings.get(0);
 
         return new Village(vid, vName, buildings, chief, palace, size);
@@ -86,7 +86,7 @@ public class CrudHelpers {
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.getAddress(), tid, buildings);
 
-        Person mayor = buildings.get(0).occupants.get(0);
+        Person mayor = buildings.get(0).getOccupants().get(0);
         Building councilComplex = buildings.get(0);
 
         return new Town(tid, tName, buildings, mayor, councilComplex, size);
@@ -115,7 +115,7 @@ public class CrudHelpers {
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.getAddress(), cid, buildings);
 
-        Person cityMayor = buildings.get(0).occupants.get(0);
+        Person cityMayor = buildings.get(0).getOccupants().get(0);
         Building cityCouncilComplex = buildings.get(0);
 
         return new City(cid, cName, buildings, cityMayor, cityCouncilComplex, size);
@@ -144,7 +144,7 @@ public class CrudHelpers {
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.getAddress(), mid, buildings);
 
-        Person governor = buildings.get(0).occupants.get(0);
+        Person governor = buildings.get(0).getOccupants().get(0);
         Building citadel = buildings.get(0);
 
         return new Metropolis(mid, mName, buildings, governor, citadel, size);

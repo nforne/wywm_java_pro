@@ -12,6 +12,7 @@ import static gamePackages.CrudHelpers.createTerritory;
 
 
 public class Main {
+    public static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
     public static ArrayList<Territory> territories = new ArrayList<>();
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -20,7 +21,7 @@ public class Main {
         while (true) {
 
             Territory newTerritory = createTerritory();
-            System.out.println("\nCreating Settlements of " + newTerritory.getName());
+            System.out.println("\nCreating Settlements of " + newTerritory.getName() + "...");
             while (true) {
                 System.out.println(MessageFormat.format("What sort of settlement will you like to add in {0} at this time?: ", newTerritory.getName()));
                 System.out.println("1: a Village?");
@@ -57,6 +58,7 @@ public class Main {
         
         input.close();
 
+        gameSessions.add(territories);
         String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(new Gson().toJson(territories)));
         System.out.println(outPut);
 
