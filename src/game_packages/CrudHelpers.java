@@ -171,7 +171,7 @@ public class CrudHelpers {
 
     public static void createBuildings(String territoryAddress, String settlementId, ArrayList<Building> buildings){
         while (true) {
-            System.out.println("\nCreate Building ...");
+            System.out.println(MessageFormat.format("\nCreate Building in {0}...", settlementId));
             Scanner buildingInput = new Scanner(System.in);
 
             System.out.println("Building Name?: eg John's family residence, 5th SubDivision police station, etc");
@@ -243,7 +243,7 @@ public class CrudHelpers {
 
                 occupants.add(person);
 
-                System.out.println("Add another Person?: Yes(Y) / No(N)");
+                System.out.println(MessageFormat.format("Add another Person to {0}?: Yes(Y) / No(N)", buildingName));
                 String addMore = personInput.next();
                 if (addMore.equalsIgnoreCase("no") || addMore.equalsIgnoreCase("n")) {
                     break;
@@ -253,7 +253,7 @@ public class CrudHelpers {
             Building building = new Building(bid, buildingName, type, size, buildingAddress, occupants);
             buildings.add(building);
 
-            System.out.println("Add another house?: Yes(Y) / No(N)");
+            System.out.println(MessageFormat.format("Add another house to {0}?: Yes(Y) / No(N)", settlementId));
             String createMore = buildingInput.next();
             if (createMore.equalsIgnoreCase("no") || createMore.equalsIgnoreCase("n")) {
                 break;

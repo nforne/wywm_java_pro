@@ -1,5 +1,6 @@
 package game_packages;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -135,7 +136,7 @@ public class Territory {
             Village villageSettlement = createVillage(this);
             this.villages.add(villageSettlement);
 
-            System.out.println("Add another village?: Yes(Y) / No(N)");
+            System.out.println(MessageFormat.format("Add another village to {0}?: Yes(Y) / No(N)", this.name));
             String addTools = vInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
                 break;
@@ -157,7 +158,7 @@ public class Territory {
             Town townSettlement = createTown(this);
             this.towns.add(townSettlement);
 
-            System.out.println("Add another Town?: Yes(Y) / No(N)");
+            System.out.println(MessageFormat.format("Add another Town to {0}?: Yes(Y) / No(N)", this.name));
             String addTools = tInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
                 break;
@@ -180,7 +181,7 @@ public class Territory {
             City citySettlement = creatCity(this);
             this.cities.add(citySettlement);
 
-            System.out.println("Add another city?: Yes(Y) / No(N)");
+            System.out.println(MessageFormat.format("Add another city {0}?: Yes(Y) / No(N)", this.name));
             String addTools = cInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
                 break;
@@ -201,7 +202,7 @@ public class Territory {
             Metropolis metroSettlement = creatMetropolis(this);
             this.metropolis.add(metroSettlement);
 
-            System.out.println("Add another metropolis?: Yes(Y) / No(N)");
+            System.out.println(MessageFormat.format("Add another metropolis {0}?: Yes(Y) / No(N)", this.name));
             String addTools = mInput.nextLine();
             if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
                 break;
