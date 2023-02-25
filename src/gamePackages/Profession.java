@@ -7,14 +7,14 @@ public class Profession {
     public String profession; // name of profession
     public String title; // title or rank or position , etc
     public ArrayList<String> tools;
-    public String area_of_expertise;
+    public String expertiseArea;
 
-    public Profession(String code, String occupation, String title, ArrayList<String> tools, String area_of_expertise) {
+    public Profession(String code, String occupation, String title, ArrayList<String> tools, String expertiseArea) {
         this.code = code;
         this.profession = occupation;
         this.title = title;
         this.tools = tools;
-        this.area_of_expertise = area_of_expertise;
+        this.expertiseArea = expertiseArea;
     }
     public String getCode() {
         return code;
@@ -47,12 +47,12 @@ public class Profession {
         this.tools = tools;
     }
 
-    public String getArea_of_expertise() {
-        return area_of_expertise;
+    public String expertiseArea() {
+        return expertiseArea;
     }
 
-    public void setArea_of_expertise(String area_of_expertise) {
-        this.area_of_expertise = area_of_expertise;
+    public void expertiseArea(String expertiseArea) {
+        this.expertiseArea = expertiseArea;
     }
 
 }

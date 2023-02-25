@@ -1,17 +1,22 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParser;
 import gamePackages.Territory;
 
-import java.io.PrintStream;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static gamePackages.CrudHelpers.createTerritory;
 
+
 public class Main {
+    public static ArrayList<Territory> territories = new ArrayList<>();
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Creating territories ....\n");
-        ArrayList<Territory> territories = new ArrayList<>();
+        System.out.println("Welcome to the game backend...\n");
+        System.out.println("Creating game territories ....\n");
         while (true) {
 
             Territory newTerritory = createTerritory();
@@ -30,12 +35,15 @@ public class Main {
                 if (settlementInput == 3) newTerritory.addCities();
                 if (settlementInput == 4) newTerritory.addMetropolis();
                 if (settlementInput == 0) break;
-
-                System.out.println(MessageFormat.format("Add another Settlement in {0} ?: Yes(Y) / No(N)", newTerritory.getName()));
-                String addTools = input.next();
-                if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                    break;
+                int[] choices = { 0, 1, 2, 3, 4 };
+                if (List.of(choices).contains(settlementInput)) {
+                    System.out.println(MessageFormat.format("Add another Settlement in {0} ?: Yes(Y) / No(N)", newTerritory.getName()));
+                    String addTools = input.next();
+                    if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
+                        break;
+                    }
                 }
+
             }
 
             territories.add(newTerritory);
@@ -49,21 +57,8 @@ public class Main {
         
         input.close();
 
-        try {
-            // Create a PrintStream instance
-            PrintStream stream = new PrintStream(System.out);
-
-            // print the object
-            // to this stream using print() method
-            // This will put the object in the stream
-            // till it is printed on the console
-            stream.print(territories);
-
-            stream.flush();
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
+        String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(new Gson().toJson(territories)));
+        System.out.println(outPut);
 
     }
 

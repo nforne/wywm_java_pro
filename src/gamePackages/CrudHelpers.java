@@ -49,7 +49,7 @@ public class CrudHelpers {
         System.out.println("Village size?: in square metres");
         String size = vInput.nextLine();
 
-        System.out.println("Adding buildings to village! ...\n");
+        System.out.println("\nAdding buildings to village! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.address, vid, buildings);
@@ -77,7 +77,7 @@ public class CrudHelpers {
         System.out.println("Town size?: in square metres");
         String size = tInput.nextLine();
 
-        System.out.println("Adding buildings to Town! ...\n");
+        System.out.println("\nAdding buildings to Town! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.address, tid, buildings);
@@ -105,7 +105,7 @@ public class CrudHelpers {
         System.out.println("City size?: in square metres");
         String size = cInput.nextLine();
 
-        System.out.println("Adding buildings to City! ...\n");
+        System.out.println("\nAdding buildings to City! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.address, cid, buildings);
@@ -133,7 +133,7 @@ public class CrudHelpers {
         System.out.println("Metropolis size?: in square metres");
         String size = mInput.nextLine();
 
-        System.out.println("Adding buildings to Metropolis! ...\n");
+        System.out.println("\nAdding buildings to Metropolis! ...\n");
         System.out.println("Creating Buildings ...");
         ArrayList<Building> buildings = new ArrayList<>();
         createBuildings(territory.address, mid, buildings);
@@ -182,16 +182,17 @@ public class CrudHelpers {
                 residence.add(buildingAddress);
 
                 System.out.println(MessageFormat.format("Creating {0}'s professional profile ...", firstName));
-                String code = UUID.randomUUID().toString();
+                String code = String.valueOf(UUID.randomUUID());
 
                 System.out.println("\nProfession?: eg Knight, Blacksmith, Farmer");
-                String occupation = personInput.nextLine(); // ----------------?
+                String test = personInput.nextLine();   // ---------------- ? nextLine()
+                String occupation = personInput.nextLine();
 
                 System.out.println("\nCurrent title or rank of person in said profession?: ");
                 String title = personInput.nextLine(); /* current title of person in the profession, title or rank or position , etc */
 
                 System.out.println("\nPerson's Area of expertise in profession?: eg backend engineer");
-                String area_of_expertise = personInput.nextLine();
+                String expertiseArea = personInput.nextLine();
 
                 System.out.println("\nTools or professional and rank identifying equipment?: ");
                 ArrayList<String> tools = new ArrayList<>();
@@ -210,7 +211,7 @@ public class CrudHelpers {
                     }
                 }
 
-                Profession profession = new Profession(code, occupation, title, tools, area_of_expertise);
+                Profession profession = new Profession(code, occupation, title, tools, expertiseArea);
 
                 Person person = new Person(firstName, lastName, age, residence, profession);
 
