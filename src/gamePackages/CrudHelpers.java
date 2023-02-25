@@ -122,7 +122,7 @@ public class CrudHelpers {
     }
 
     public static  Metropolis creatMetropolis(Territory territory) {
-        System.out.println("Creating City ...");
+        System.out.println("Creating Metropolis ...");
         Scanner mInput = new Scanner(System.in);
 
         String mid;
