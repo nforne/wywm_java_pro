@@ -12,47 +12,6 @@ public class Territory {
     private String size;
     private String climate; // climate could be tropical or temperate
     private static ArrayList<String> territoryIds = new ArrayList<>();
-
-    public static ArrayList<String> getTerritoryIds() {
-        return territoryIds;
-    }
-
-    public static void setTerritoryIds(ArrayList<String> territoryIds) {
-        Territory.territoryIds = territoryIds;
-    }
-
-    public ArrayList<String> getVillagesIds() {
-        return villagesIds;
-    }
-
-    public void setVillagesIds(ArrayList<String> villagesIds) {
-        this.villagesIds = villagesIds;
-    }
-
-    public ArrayList<String> getTownsIds() {
-        return townsIds;
-    }
-
-    public void setTownsIds(ArrayList<String> townsIds) {
-        this.townsIds = townsIds;
-    }
-
-    public ArrayList<String> getCitiesIds() {
-        return citiesIds;
-    }
-
-    public void setCitiesIds(ArrayList<String> citiesIds) {
-        this.citiesIds = citiesIds;
-    }
-
-    public ArrayList<String> getMetropolisIds() {
-        return metropolisIds;
-    }
-
-    public void setMetropolisIds(ArrayList<String> metropolisIds) {
-        this.metropolisIds = metropolisIds;
-    }
-
     private  ArrayList<String> villagesIds;
     private  ArrayList<String> townsIds;
     private  ArrayList<String> citiesIds;
@@ -121,6 +80,46 @@ public class Territory {
 
     public void setClimate(String climate) {
         this.climate = climate;
+    }
+
+    public static ArrayList<String> getTerritoryIds() {
+        return territoryIds;
+    }
+
+    public static void setTerritoryIds(ArrayList<String> territoryIds) {
+        Territory.territoryIds = territoryIds;
+    }
+
+    public ArrayList<String> getVillagesIds() {
+        return villagesIds;
+    }
+
+    public void setVillagesIds(ArrayList<String> villagesIds) {
+        this.villagesIds = villagesIds;
+    }
+
+    public ArrayList<String> getTownsIds() {
+        return townsIds;
+    }
+
+    public void setTownsIds(ArrayList<String> townsIds) {
+        this.townsIds = townsIds;
+    }
+
+    public ArrayList<String> getCitiesIds() {
+        return citiesIds;
+    }
+
+    public void setCitiesIds(ArrayList<String> citiesIds) {
+        this.citiesIds = citiesIds;
+    }
+
+    public ArrayList<String> getMetropolisIds() {
+        return metropolisIds;
+    }
+
+    public void setMetropolisIds(ArrayList<String> metropolisIds) {
+        this.metropolisIds = metropolisIds;
     }
 
     public ArrayList<Village> getVillages() {
