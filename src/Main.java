@@ -12,12 +12,8 @@ import static game_packages.CrudHelpers.createTerritory;
 
 
 public class Main {
-    public static ArrayList<Territory> territories;
-    private static ArrayList<ArrayList<Territory>> gameSessions;
-    public Main() {
-        Main.gameSessions = new ArrayList<>();
-        Main.territories = new ArrayList<>();
-    }
+    private static ArrayList<Territory> territories = new ArrayList<>();
+    private static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the game backend...\n");
@@ -61,12 +57,18 @@ public class Main {
         
         input.close();
 
-        getGameSessions().add(territories);
+        gameSessions.add(territories);
         String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(new Gson().toJson(territories)));
         System.out.println(outPut);
 
     }
 
+    public static ArrayList<Territory> getTerritories() {
+        return territories;
+    }
+    public static void setTerritories(ArrayList<Territory> territories) {
+        Main.territories = territories;
+    }
 
     public static ArrayList<ArrayList<Territory>> getGameSessions() {
         return gameSessions;
