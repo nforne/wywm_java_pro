@@ -5,17 +5,10 @@ import java.util.ArrayList;
 public class Metropolis extends Settlement{
     private Person governor;
     private Building citadel;
-    private String size;
-    private ArrayList<Integer> buildingIds;
     public Metropolis(String id, String name, ArrayList<Building> buildings, Person governor, Building citadel, String size) {
-        super(id, name, buildings);
+        super(id, name, buildings, size);
         this.governor = governor;
         this.citadel = citadel;
-        this.size = size;
-        this.buildingIds = new ArrayList<>();
-        for (Building b: buildings) {
-            this.buildingIds.add(b.id);
-        }
     }
 
     public Person getGovernor() {
@@ -32,14 +25,6 @@ public class Metropolis extends Settlement{
 
     public void setCitadel(Building citadel) {
         this.citadel = citadel;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 
 }

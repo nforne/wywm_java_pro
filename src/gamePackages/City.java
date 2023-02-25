@@ -5,17 +5,10 @@ import java.util.ArrayList;
 public class City extends Settlement{
     private Person cityMayor;
     private Building cityCouncilComplex;
-    private String size;
-    private ArrayList<Integer> buildingIds;
     public City(String id, String name, ArrayList<Building> buildings, Person cityMayor, Building cityCouncilComplex, String size) {
-        super(id, name, buildings);
+        super(id, name, buildings, size);
         this.cityMayor = cityMayor;
         this.cityCouncilComplex = cityCouncilComplex;
-        this.size = size;
-        this.buildingIds = new ArrayList<>();
-        for (Building b: buildings) {
-            this.buildingIds.add(b.id);
-        }
     }
     public Person getCityMayor() {
         return cityMayor;
@@ -32,15 +25,5 @@ public class City extends Settlement{
     public void setCityCouncilComplex(Building cityCouncilComplex) {
         this.cityCouncilComplex = cityCouncilComplex;
     }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-
 
 }
