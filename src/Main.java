@@ -16,7 +16,7 @@ public class Main {
     private static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to the game backend...\n");
+        System.out.println("\nWelcome to the game backend...\n");
         System.out.println("Creating game territories ....\n");
         while (true) {
 

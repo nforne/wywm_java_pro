@@ -186,7 +186,7 @@ public class CrudHelpers {
             int bid = buildings.size() == 0 ? 1 : buildings.size() + 1; // eg 10-V12-23 for territory # 10, village # 12, house # 23
             String buildingAddress = territoryAddress + "-" + settlementId + "-" + bid;
 
-            System.out.println(MessageFormat.format("\nAssigning Occupants to {0}....", buildingName));
+            System.out.println(MessageFormat.format("\nAssigning Occupants to {0} ...", buildingName));
             ArrayList<Person> occupants = new ArrayList<>();
 
             while (true) {
