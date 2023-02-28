@@ -102,7 +102,7 @@ public class CrudHelpers {
         return town;
     }
 
-    public static  City creatCity(Territory territory) {
+    public static  City createCity(Territory territory) {
         System.out.println("Creating City ...");
         Scanner cInput = new Scanner(System.in);
 
@@ -135,7 +135,7 @@ public class CrudHelpers {
         return city;
     }
 
-    public static  Metropolis creatMetropolis(Territory territory) {
+    public static  Metropolis createMetropolis(Territory territory) {
         System.out.println("Creating Metropolis ...");
         Scanner mInput = new Scanner(System.in);
 
@@ -167,7 +167,6 @@ public class CrudHelpers {
 
         return metropolis;
     }
-
 
     public static void createBuildings(String territoryAddress, String settlementId, ArrayList<Building> buildings){
         while (true) {

@@ -178,7 +178,7 @@ public class Territory {
         while (true) {
             Scanner cInput = new Scanner(System.in);
 
-            City citySettlement = creatCity(this);
+            City citySettlement = createCity(this);
             this.cities.add(citySettlement);
 
             System.out.println(MessageFormat.format("Add another city {0}?: Yes(Y) / No(N)", this.name));
@@ -199,7 +199,7 @@ public class Territory {
         while (true) {
             Scanner mInput = new Scanner(System.in);
 
-            Metropolis metroSettlement = creatMetropolis(this);
+            Metropolis metroSettlement = createMetropolis(this);
             this.metropolis.add(metroSettlement);
 
             System.out.println(MessageFormat.format("Add another metropolis {0}?: Yes(Y) / No(N)", this.name));
