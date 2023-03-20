@@ -23,6 +23,8 @@ public class Territory {
     private ArrayList<City> cities;
     private ArrayList<Metropolis> metropolis;
 
+    private Scanner tSc = new Scanner(System.in);
+
     public Territory(String name, String address, String size, String climate, String id) {
         this.id = id;
         this.name = name;
@@ -129,19 +131,22 @@ public class Territory {
     public void setVillages(ArrayList<Village> villages) {
         this.villages = villages;
     }
+
+    private boolean addAnother(){
+        boolean output = false;
+        System.out.println(MessageFormat.format("Add another village to {0}?: Yes(Y) / No(N)", this.name));
+        String addTools = tSc.nextLine();
+        if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
+           output = true;
+        }
+        return output;
+    }
     public void addVillages() {
         while (true) {
-            Scanner vInput = new Scanner(System.in);
-
             Village villageSettlement = createVillage(this);
             this.villages.add(villageSettlement);
 
-            System.out.println(MessageFormat.format("Add another village to {0}?: Yes(Y) / No(N)", this.name));
-            String addTools = vInput.nextLine();
-            if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                break;
-            }
-
+            if (addAnother()) break;
         }
     }
 
