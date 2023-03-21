@@ -22,8 +22,9 @@ public class Territory {
     private ArrayList<Town> towns;
     private ArrayList<City> cities;
     private ArrayList<Metropolis> metropolis;
-
-    private Scanner tSc = new Scanner(System.in);
+    private static Scanner tSc ()  {
+        return new Scanner(System.in);
+    }
 
     public Territory(String name, String address, String size, String climate, String id) {
         this.id = id;
@@ -132,22 +133,20 @@ public class Territory {
         this.villages = villages;
     }
 
-    private boolean addAnother(){
-        boolean output = false;
-        System.out.println(MessageFormat.format("Add another village to {0}?: Yes(Y) / No(N)", this.name));
-        String addTools = tSc.nextLine();
+    private boolean addAnother(String settlementType){
+        boolean output = true;
+        System.out.println(MessageFormat.format("Add another {0} to {1}?: Yes(Y) / No(N)", settlementType, this.name));
+        String addTools = tSc().nextLine();
         if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-           output = true;
+           output = false;
         }
         return output;
     }
     public void addVillages() {
-        while (true) {
+        do {
             Village villageSettlement = createVillage(this);
             this.villages.add(villageSettlement);
-
-            if (addAnother()) break;
-        }
+        } while (addAnother("Village"));
     }
 
     public ArrayList<Town> getTowns() {
@@ -157,19 +156,10 @@ public class Territory {
         this.towns = towns;
     }
     public void addTowns() {
-        while (true) {
-            Scanner tInput = new Scanner(System.in);
-
+        do {
             Town townSettlement = createTown(this);
             this.towns.add(townSettlement);
-
-            System.out.println(MessageFormat.format("Add another Town to {0}?: Yes(Y) / No(N)", this.name));
-            String addTools = tInput.nextLine();
-            if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                break;
-            }
-
-        }
+        } while (addAnother("Town"));
     }
 
     public ArrayList<City> getCities() {
@@ -180,19 +170,10 @@ public class Territory {
         this.cities = cities;
     }
     public void addCities() {
-        while (true) {
-            Scanner cInput = new Scanner(System.in);
-
+        do {
             City citySettlement = createCity(this);
             this.cities.add(citySettlement);
-
-            System.out.println(MessageFormat.format("Add another city {0}?: Yes(Y) / No(N)", this.name));
-            String addTools = cInput.nextLine();
-            if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                break;
-            }
-
-        }
+        } while (addAnother("City"));
     }
     public ArrayList<Metropolis> getMetropolis() {
         return metropolis;
@@ -201,19 +182,10 @@ public class Territory {
         this.metropolis = metropolis;
     }
     public void addMetropolis() {
-        while (true) {
-            Scanner mInput = new Scanner(System.in);
-
+        do {
             Metropolis metroSettlement = createMetropolis(this);
             this.metropolis.add(metroSettlement);
-
-            System.out.println(MessageFormat.format("Add another metropolis {0}?: Yes(Y) / No(N)", this.name));
-            String addTools = mInput.nextLine();
-            if (addTools.equalsIgnoreCase("no") || addTools.equalsIgnoreCase("n")) {
-                break;
-            }
-
-        }
+        } while (addAnother("Metropolis"));
     }
 
 }

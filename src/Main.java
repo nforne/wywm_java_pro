@@ -1,6 +1,3 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParser;
 import game_packages.Territory;
 
 import java.text.MessageFormat;
@@ -9,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static game_packages.CrudHelpers.createTerritory;
+import static game_packages.CrudHelpers.jsonPrettyPrint;
 
 
 public class Main {
@@ -54,13 +52,13 @@ public class Main {
                 break;
             }
         }
-        
+
+
         input.close();
 
-        gameSessions.add(territories);
-        String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(new Gson().toJson(territories)));
-        System.out.println(outPut);
+        gameSessions.add(getTerritories());
 
+        jsonPrettyPrint(getTerritories());
     }
 
     public static ArrayList<Territory> getTerritories() {

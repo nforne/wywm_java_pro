@@ -1,5 +1,8 @@
 package game_packages;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParser;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import java.text.MessageFormat;
@@ -32,6 +35,16 @@ public class CrudHelpers {
         }
         return output;
     }
+
+    public static void jsonPrettyPrint(ArrayList<Territory> territories) {
+
+        String json = new Gson().toJson(territories);
+        String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(json));
+        System.out.println("This is/are the territory(ies) ... ");
+        System.out.println(outPut);
+
+    }
+
     public static Territory createTerritory(){
         System.out.println("Creating Territory ...");
         Scanner input = new Scanner(System.in);
@@ -219,10 +232,10 @@ public class CrudHelpers {
                 ArrayList<String> residence = new ArrayList<>();
                 residence.add(buildingAddress);
 
-                System.out.println(MessageFormat.format("\nCreating {0}'s professional profile ...", firstName));
+                System.out.println(MessageFormat.format("\nCreating {0}'s professional profile ...\n", firstName));
                 String code = String.valueOf(UUID.randomUUID());
 
-                String occupation = userInput(personInput, MessageFormat.format("\n{0}'s Profession?: eg Knight, Blacksmith, Farmer", firstName), true);
+                String occupation = userInput(personInput, MessageFormat.format("{0}'s Profession?: eg Knight, Blacksmith, Farmer", firstName), true);
 
                 /* current title of person in the profession, title or rank or position , etc */
                 String title = userInput(personInput, MessageFormat.format("Current title or rank of {0} in {1}?: ", firstName, occupation), true);
