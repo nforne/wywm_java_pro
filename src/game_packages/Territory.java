@@ -4,9 +4,10 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static game_packages.CrudHelpers.*;
+import static game_packages.DB_CRUD.dbCrudHelpers;
 
 class Territory {
+
     private String id;
     private String name;
     private String address;
@@ -114,20 +115,20 @@ class Territory {
     }
     public void addVillages() {
         do {
-            Village villageSettlement = createVillage(this);
+            Village villageSettlement = dbCrudHelpers.createVillage(this);
             this.villages.add(villageSettlement);
         } while (addAnother("Village"));
     }
     public void addTowns() {
         do {
-            Town townSettlement = createTown(this);
+            Town townSettlement = dbCrudHelpers.createTown(this);
             this.towns.add(townSettlement);
         } while (addAnother("Town"));
     }
 
     public void addCities() {
         do {
-            City citySettlement = createCity(this);
+            City citySettlement = dbCrudHelpers.createCity(this);
             this.cities.add(citySettlement);
         } while (addAnother("City"));
     }
@@ -139,7 +140,7 @@ class Territory {
     }
     public void addMetropolis() {
         do {
-            Metropolis metroSettlement = createMetropolis(this);
+            Metropolis metroSettlement = dbCrudHelpers.createMetropolis(this);
             this.metropolis.add(metroSettlement);
         } while (addAnother("Metropolis"));
     }
