@@ -16,43 +16,5 @@ public class Profession {
         this.tools = tools;
         this.expertiseArea = expertiseArea;
     }
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ArrayList<String> getTools() {
-        return tools;
-    }
-
-    public void setTools(ArrayList<String> tools) {
-        this.tools = tools;
-    }
-
-    public String expertiseArea() {
-        return expertiseArea;
-    }
-
-    public void expertiseArea(String expertiseArea) {
-        this.expertiseArea = expertiseArea;
-    }
 
 }

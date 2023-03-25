@@ -10,20 +10,5 @@ public class City extends Settlement{
         this.cityMayor = cityMayor;
         this.cityCouncilComplex = cityCouncilComplex;
     }
-    public Person getCityMayor() {
-        return cityMayor;
-    }
-
-    public void setCityMayor(Person cityMayor) {
-        this.cityMayor = cityMayor;
-    }
-
-    public Building getCityCouncilComplex() {
-        return cityCouncilComplex;
-    }
-
-    public void setCityCouncilComplex(Building cityCouncilComplex) {
-        this.cityCouncilComplex = cityCouncilComplex;
-    }
 
 }

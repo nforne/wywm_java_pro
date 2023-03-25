@@ -6,6 +6,7 @@ import java.util.UUID;
 public class Building {
 
     //    a building could be a hurt, a bungalow, a flat, a story building, an office complex, a market, a business plaza, etc
+    public int id;
     private String name;
     private String type;
     private String size;
@@ -25,54 +26,8 @@ public class Building {
         }
     }
 
-    public int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public ArrayList<Person> getOccupants() {
         return occupants;
-    }
-
-    public void setOccupants(ArrayList<Person> occupants) {
-        this.occupants = occupants;
     }
 
 

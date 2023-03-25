@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Person {
-    public UUID getId() {
-        return id;
-    }
 
     private UUID id;
     private String firstName;
@@ -23,45 +20,8 @@ public class Person {
         this.profession = profession;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public UUID getId() {
+        return id;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public ArrayList<String> getResidence() {
-        return residence;
-    }
-
-    public void setResidence(ArrayList<String> residence) {
-        this.residence = residence;
-    }
-
-    public Profession getProfession() {
-        return profession;
-    }
-
-    public void setProfession(Profession profession) {
-        this.profession = profession;
-    }
-
 
 }

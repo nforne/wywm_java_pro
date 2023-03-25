@@ -20,42 +20,8 @@ class Settlement {
         }
     }
 
-    public String getSize() {
-        return size;
-    }
-    public void setSize(String size) {
-        this.size = size;
-    }
     public String getId() {
         return id;
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ArrayList<Building> getBuildings() {
-        return buildings;
-    }
-
-    public void setBuildings(ArrayList<Building> buildings) {
-        this.buildings = buildings;
-    }
-    public ArrayList<Integer> getBuildingIds() {
-        return buildingIds;
-    }
-
-    public void setBuildingIds(ArrayList<Integer> buildingIds) {
-        this.buildingIds = buildingIds;
-    }
-
 
 }

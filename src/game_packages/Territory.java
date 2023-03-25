@@ -49,42 +49,19 @@ public class Territory {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getSize() {
         return size;
     }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getClimate() {
-        return climate;
-    }
-
-    public void setClimate(String climate) {
-        this.climate = climate;
-    }
 
     public static ArrayList<String> getTerritoryIds() {
         return territoryIds;
@@ -126,13 +103,6 @@ public class Territory {
         this.metropolisIds = metropolisIds;
     }
 
-    public ArrayList<Village> getVillages() {
-        return villages;
-    }
-    public void setVillages(ArrayList<Village> villages) {
-        this.villages = villages;
-    }
-
     private boolean addAnother(String settlementType){
         boolean output = true;
         System.out.println(MessageFormat.format("Add another {0} to {1}?: Yes(Y) / No(N)", settlementType, this.name));
@@ -148,13 +118,6 @@ public class Territory {
             this.villages.add(villageSettlement);
         } while (addAnother("Village"));
     }
-
-    public ArrayList<Town> getTowns() {
-        return towns;
-    }
-    public void setTowns(ArrayList<Town> towns) {
-        this.towns = towns;
-    }
     public void addTowns() {
         do {
             Town townSettlement = createTown(this);
@@ -162,13 +125,6 @@ public class Territory {
         } while (addAnother("Town"));
     }
 
-    public ArrayList<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(ArrayList<City> cities) {
-        this.cities = cities;
-    }
     public void addCities() {
         do {
             City citySettlement = createCity(this);

@@ -20,11 +20,12 @@ public class CrudHelpers {
                 output = sc.nextLine();
                 char c = output.charAt(0);
                 if (output.length() > 0
-                        && ((((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) && stringOrNumber)
-                        || (NumberUtils.isCreatable(output) && !stringOrNumber))){
+                    && ((((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) && stringOrNumber)
+                    || (NumberUtils.isCreatable(output) && !stringOrNumber))){
                     break;
-                }  else {
+                } else {
                     output = "";
+                    System.out.println("Oops! Something went wrong and we'll have to retake your response please ...");
                 }
             }
             catch (Exception e) {
@@ -43,7 +44,6 @@ public class CrudHelpers {
         System.out.println(outPut);
     }
 
-
     public static void createTerritories() {
         Scanner input = new Scanner(System.in);
         System.out.println("\nWelcome to the game backend...\n");
@@ -59,7 +59,7 @@ public class CrudHelpers {
                 System.out.println("3: a City?");
                 System.out.println("4: a Metropolis?");
                 System.out.println("0: None?");
-                int settlementInput = input.nextInt();
+                int settlementInput = parseInt(userInput(input, "Enter your choice(0-4)?: eg 1 for a village, 2 for a town, ...", false));
 
                 if (settlementInput == 1) newTerritory.addVillages();
                 if (settlementInput == 2) newTerritory.addTowns();
@@ -96,16 +96,6 @@ public class CrudHelpers {
     private static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
     public static ArrayList<Territory> getTerritories() {
         return territories;
-    }
-    public static void setTerritories(ArrayList<Territory> territories) {
-        CrudHelpers.territories = territories;
-    }
-
-    public static ArrayList<ArrayList<Territory>> getGameSessions() {
-        return gameSessions;
-    }
-    public static void setGameSessions(ArrayList<ArrayList<Territory>> gameSessions) {
-        CrudHelpers.gameSessions = gameSessions;
     }
 
     private static Map<String, String> nationalOccupationCodes = new HashMap<>();

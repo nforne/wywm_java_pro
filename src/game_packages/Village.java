@@ -10,20 +10,4 @@ public class Village extends Settlement{
         this.chief = chief;
         this.palace = palace;
     }
-
-    public Person getChief() {
-        return chief;
-    }
-
-    public void setChief(Person chief) {
-        this.chief = chief;
-    }
-
-    public Building getPalace() {
-        return palace;
-    }
-
-    public void setPalace(Building palace) {
-        this.palace = palace;
-    }
 }

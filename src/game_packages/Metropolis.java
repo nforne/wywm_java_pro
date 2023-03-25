@@ -11,20 +11,4 @@ public class Metropolis extends Settlement{
         this.citadel = citadel;
     }
 
-    public Person getGovernor() {
-        return governor;
-    }
-
-    public void setGovernor(Person governor) {
-        this.governor = governor;
-    }
-
-    public Building getCitadel() {
-        return citadel;
-    }
-
-    public void setCitadel(Building citadel) {
-        this.citadel = citadel;
-    }
-
 }

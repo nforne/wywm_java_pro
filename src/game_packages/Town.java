@@ -11,20 +11,4 @@ public class Town extends Settlement{
         this.councilComplex = councilComplex;
     }
 
-    public Person getMayor() {
-        return mayor;
-    }
-
-    public void setMayor(Person mayor) {
-        this.mayor = mayor;
-    }
-
-    public Building getCouncilComplex() {
-        return councilComplex;
-    }
-
-    public void setCouncilComplex(Building councilComplex) {
-        this.councilComplex = councilComplex;
-    }
-
 }
