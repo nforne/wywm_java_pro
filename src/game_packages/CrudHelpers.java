@@ -8,10 +8,12 @@ import org.apache.commons.lang3.math.NumberUtils;
 import java.text.MessageFormat;
 import java.util.*;
 
+import static game_packages.DB_CRUD.*;
 import static java.lang.Integer.parseInt;
 
-public class CrudHelpers {
-    public static String userInput(Scanner sc, String toBeCollected, boolean stringOrNumber){
+public interface CrudHelpers {
+
+    static String userInput(Scanner sc, String toBeCollected, boolean stringOrNumber){
         /* method to collect and validate user input before use */
         String output = "";
         while (output.equals("")){
@@ -25,7 +27,7 @@ public class CrudHelpers {
                     break;
                 } else {
                     output = "";
-                    System.out.println("Oops! Something went wrong and we'll have to retake your response please ...");
+                    System.out.println("Oops! Error/bad response. Let's try again please ...");
                 }
             }
             catch (Exception e) {
@@ -36,7 +38,7 @@ public class CrudHelpers {
         return output;
     }
 
-    public static void jsonPrettyPrint(ArrayList<Territory> territories) {
+    static void jsonPrettyPrint(ArrayList<Territory> territories) {
         /* to legibly print the created territories to the console */
         String json = new Gson().toJson(territories);
         String outPut = new GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(json));
@@ -44,7 +46,7 @@ public class CrudHelpers {
         System.out.println(outPut);
     }
 
-    public static void createTerritories() {
+    static void createTerritories() {
         Scanner input = new Scanner(System.in);
         System.out.println("\nWelcome to the game backend...\n");
         System.out.println("Creating game territories ....\n");
@@ -90,16 +92,13 @@ public class CrudHelpers {
         gameSessions.add(getTerritories());
 
         jsonPrettyPrint(getTerritories());
-    };
+    }
 
-    private static ArrayList<Territory> territories = new ArrayList<>();
-    private static ArrayList<ArrayList<Territory>> gameSessions = new ArrayList<>();
-    public static ArrayList<Territory> getTerritories() {
+    static ArrayList<Territory> getTerritories() {
         return territories;
     }
 
-    private static Map<String, String> nationalOccupationCodes = new HashMap<>();
-    private static String setNOCs(Map<String, String> noc, String profession){
+    static String setNOCs(Map<String, String> noc, String profession){
         /* To auto generate national occupation classification codes */
         String NOC = "";
         for ( String nocCode : noc.keySet()){
@@ -121,7 +120,8 @@ public class CrudHelpers {
 
         return NOC;
     }
-    public static Territory createTerritory(){
+
+    static Territory createTerritory(){
         System.out.println("Creating Territory ...");
         Scanner input = new Scanner(System.in);
 
@@ -154,7 +154,7 @@ public class CrudHelpers {
         return territory;
     }
 
-    public static Village createVillage(Territory territory){
+    static Village createVillage(Territory territory){
         System.out.println("Creating Village ...");
         Scanner vInput = new Scanner(System.in);
 
@@ -185,7 +185,7 @@ public class CrudHelpers {
         return village;
     }
 
-    public static  Town createTown(Territory territory) {
+    static  Town createTown(Territory territory) {
         System.out.println("Creating Town ...");
         Scanner tInput = new Scanner(System.in);
 
@@ -216,7 +216,7 @@ public class CrudHelpers {
         return town;
     }
 
-    public static  City createCity(Territory territory) {
+    static  City createCity(Territory territory) {
         System.out.println("Creating City ...");
         Scanner cInput = new Scanner(System.in);
 
@@ -247,7 +247,7 @@ public class CrudHelpers {
         return city;
     }
 
-    public static  Metropolis createMetropolis(Territory territory) {
+    static  Metropolis createMetropolis(Territory territory) {
         System.out.println("Creating Metropolis ...");
         Scanner mInput = new Scanner(System.in);
 
@@ -278,7 +278,7 @@ public class CrudHelpers {
         return metropolis;
     }
 
-    public static void createBuildings(String territoryAddress, String settlementId, ArrayList<Building> buildings){
+    static void createBuildings(String territoryAddress, String settlementId, ArrayList<Building> buildings){
         while (true) {
             System.out.println(MessageFormat.format("\nCreate Building in {0}...", settlementId));
             Scanner buildingInput = new Scanner(System.in);
@@ -357,5 +357,4 @@ public class CrudHelpers {
             }
         }
     }
-
 }

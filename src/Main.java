@@ -1,5 +1,4 @@
-import static game_packages.CrudHelpers.createTerritories;
-
+import static game_packages.CrudHelpers.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +12,8 @@ public class Main {
 
 //        For now, it's a CLI run to make sure of the back-end and data structure
 //        There will be slight modifications to serve the CRUD API were there to be a front-end(GUI)
+//        Each object carries its own unique attributes and functionality.
+//        Only what is common is extracted to a common parent class
         createTerritories();
     }
 
