@@ -3,7 +3,7 @@ package game_packages;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Building {
+class Building {
 
     //    a building could be a hurt, a bungalow, a flat, a story building, an office complex, a market, a business plaza, etc
     public int id;

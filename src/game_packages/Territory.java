@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import static game_packages.CrudHelpers.*;
 
-public class Territory {
+class Territory {
     private String id;
     private String name;
     private String address;

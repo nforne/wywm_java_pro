@@ -2,7 +2,7 @@ package game_packages;
 
 import java.util.ArrayList;
 
-public class Profession {
+class Profession {
     private String code;
     private String profession; // name of profession
     private String title; // title or rank or position , etc

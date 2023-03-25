@@ -3,7 +3,7 @@ package game_packages;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Person {
+class Person {
 
     private UUID id;
     private String firstName;
